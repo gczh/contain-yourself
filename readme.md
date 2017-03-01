@@ -76,8 +76,14 @@ quay.io/dksg/python3-notebook   latest              f01e49a5a922        3 days a
 
 Take that `IMAGE ID` and start it up with this command:
 
+##### For Mac Users
+
 ```
 docker run -it -p 8888:8888 -v /path/to/local/directory:/home/jovyan/work f01e49a5a922
 ```
 
 You will get instructions for link to paste into your browser address box.
+
+##### For Windows Users
+
+To be done!
