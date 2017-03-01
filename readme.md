@@ -74,16 +74,35 @@ REPOSITORY                      TAG                 IMAGE ID            CREATED 
 quay.io/dksg/python3-notebook   latest              f01e49a5a922        3 days ago          2.61 GB
 ```
 
-Take that `IMAGE ID` and start it up with this command:
+2 things to take note of for the output produced by the command `docker images`:
 
-##### For Mac Users
+  1. Take that note of the **REPOSITORY**. It is **quay.io/dksg/python3-notebook**.
+
+  2. In the same row, look for **IMAGE ID** which is **f01e49a5a922** from the above output produced by the command `docker images`
+
+Now that we have the IMAGE ID, let's take a look at the following command:
 
 ```
 docker run -it -p 8888:8888 -v /path/to/local/directory:/home/jovyan/work f01e49a5a922
 ```
 
+Let's pay attention to the `-p 8888:8888` part of the command first. We can read it as:
+
+```
+-p [docker's port]:[your target port - can be anything]
+```
+
+Back to the main command, this means we are specifiying docker's port as 8888 and our target port as 8888 as well.
+
+Now, let's look at the following part of the command
+
+`-v /path/to/local/directory:/home/jovyan/work`
+
+When we type `-v` we are telling the system where we want to place the docker directory and the one after the colon, the default go-to directory should docker not be able to find the directory we put at the front.
+
+It's important to note here that `/path/to/local/directory` is where you will place your Python and R scripts later to run from your IPython Notebook's file manager.
+
+Note: For Windows users using Docker Toolbox, ensure your hostpath /Users
 You will get instructions for link to paste into your browser address box.
 
-##### For Windows Users
 
-To be done!
